@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RentoVR - Your Personalized VR Experience</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- Navigation Bar -->
+<header>
+    <nav>
+        <ul>
+           
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="tracking.html">Track Order</a></li>
+                    <li><a href="order-history.html">Order History</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="javascript:void(0);" onclick="openLoginModal()">Login</a></li>
+                    <li><a href="javascript:void(0);" onclick="openRegisterModal()">Register</a></li>
+
+              
+            </li>
+            <li><a href="profile.html">Profile</a></li>
+        </ul>
+    </nav>
+</header>
+<!-- Hero Section -->
+<section id="hero">
+    <div class="hero-content">
+        <h1>Where Fantasy Meets<br> Reality - Personalized <br>VR for All</h1>
+        <p>Experience immersive entertainment, gaming, and movies at home.</p>
+        <button onclick="window.location.href='booking.html'">Book Now</button>
+    </div>
+    
+</section>
+
+<!-- Why Rent VR Section -->
+<section id="why-rent-vr">
+    <h2>Why Rent VR?</h2>
+    <div class="button-container">
+        <div class="button-item" id="affordable-pricing">
+            <img src="/assets/affordableprice.png" alt="Affordable Pricing" class="button-icon">
+            <h3>Affordable Pricing</h3>
+            <p>No need to invest in expensive equipment. Rent it as you need it.</p>
+        </div>
+        <div class="button-item" id="flexible-plans">
+            <img src="/assets/flexibalplans.png" alt="Flexible Plans" class="button-icon">
+            <h3>Flexible Plans</h3>
+            <p>Choose from 3-day, 7-day, or 14-day rental options to suit your schedule.</p>
+        </div>
+        <div class="button-item" id="convenient-delivery">
+            <img src="/assets/convienientdelivery.png" alt="Convenient Delivery" class="button-icon">
+            <h3>Convenient Delivery</h3>
+            <p>We deliver and pick up devices from your doorstep, hassle-free.</p>
+        </div>
+        <div class="button-item" id="excellent-support">
+            <img src="/assets/excellentsupport.png" alt="Excellent Support" class="button-icon">
+            <h3>Excellent Support</h3>
+            <p>Our customer support team is here to ensure you have the best VR experience.</p>
+        </div>
+    </div>
+</section>
+<section id="devices-we-offer">
+    <h2>Devices We Offer</h2>
+    <div class="device-container">
+        <div class="device-item" onclick="openDeviceInfo('meta-quest-2')">
+            <img src="/assets/quest2.png" alt="Meta Quest 2" class="device-img">
+            <h3>Meta Quest 2</h3>
+        </div>
+        <div class="device-item" onclick="openDeviceInfo('meta-quest-3')">
+            <img src="/assets/quest3.png" alt="Meta Quest 3" class="device-img">
+            <h3>Meta Quest 3</h3>
+        </div>
+        <div class="device-item" onclick="openDeviceInfo('htc-vive-pro')">
+            <img src="/assets/questpro.png" alt="HTC Vive Pro" class="device-img">
+            <h3>Meta Quest Pro</h3>
+        </div>
+        <div class="device-item" onclick="openDeviceInfo('meta-quest-pro')">
+            <img src="/assets/activequestvive.png" alt="Meta Quest Pro" class="device-img">
+            <h3>Microsoft Hololens 2</h3>
+        </div>
+        <div class="device-item" onclick="openDeviceInfo('microsoft-hololens')">
+            
+            <img src="/assets/hololens.png" alt="Microsoft Hololens" class="device-img">
+            <h3>HTC-vive-pro</h3>
+        </div>
+        <div class="device-item" onclick="openDeviceInfo('pico-vr')">
+            <img src="/assets/pico.png" alt="Pico VR" class="device-img">
+            <h3>Pico VR</h3>
+        </div>
+       
+    </div>
+</section>
+<div id="device-popup" class="popup" style="display:none;">
+    <div class="popup-content">
+        <span class="close-btn" onclick="closePopup('device-popup')">&times;</span>
+        <h2 id="device-title">Device Title</h2>
+        <!-- <img src="/assets/icon.png" id="device-img" alt="Device" class="popup-img"> -->
+        <p id="device-description">Description of the device goes here.</p>
+        <h3>Technical Specifications:</h3>
+        <table id="device-specs">
+            <tr>
+                <th>Specification</th>
+                <th>Details</th>
+            </tr>
+            <tr><td>Display</td><td>Resolution, Type</td></tr>
+            <tr><td>Processor</td><td>Model, Speed</td></tr>
+            <tr><td>Battery</td><td>Life, Capacity</td></tr>
+            <tr><td>Weight</td><td>Kg</td></tr>
+        </table>
+        <h3>Rating:</h3>
+        <div id="device-rating">
+            <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
+        </div>
+    </div>
+</div>
+
+<!-- Simple Order Process Section -->
+<section id="simple-order-process">
+    <h2>Simple Order Process</h2>
+    <div class="steps">
+        <!-- Step 1: Choose Device -->
+        <div class="step" id="choose-device" onclick="openChooseDevicePopup()" onclick="closePopup('device-popup')">
+            <h3>1. Choose Your Device</h3>
+            <p>Select your preferred VR device from our collection.</p>
+        </div>
+
+        <!-- Step 2: Pick Rental Plan -->
+        <div class="step" id="pick-plan" onclick="openRentalPlanPopup()">
+            <h3>2. Pick Your Rental Plan</h3>
+            <p>Choose a rental plan that suits your needs: 3-day, 5-day, or 10-day.</p>
+        </div>
+
+        <!-- Step 3: Book and Enjoy -->
+        <div class="step" id="book-enjoy" onclick="window.location.href='booking.html'">
+            <h3>3. Book & Enjoy</h3>
+            <p>Complete your booking and enjoy your VR experience!</p>
+        </div>
+    </div>
+</section>
+
+
+
+<div id="device-popup" class="popup" style="display:none;">
+    <div class="popup-content">
+        <span class="close" onclick="closePopup('device-popup')">&times;</span>
+        <h3>Choose Your Device</h3>
+        <div class="device-list">
+            <button onclick="selectDevice('Meta Quest 2')">Meta Quest 2</button>
+            <button onclick="selectDevice('Meta Quest 3')">Meta Quest 3</button>
+            <button onclick="selectDevice('HTC Vive Pro')">HTC Vive Pro</button>
+            <button onclick="selectDevice('Microsoft Hololens')">Microsoft Hololens</button>
+            <button onclick="selectDevice('Pico VR')">Pico VR</button>
+        </div>
+    </div>
+</div>
+
+<!-- Rental Plan Popup -->
+<div id="plan-popup" class="popup">
+    <div class="popup-content">
+        <span class="close" onclick="closePopup('plan-popup')">&times;</span>
+        <h3>Choose Rental Plan</h3>
+        <div class="plan-list">
+            <button onclick="openCalendarPopup('3-day')">3 Day Rental</button>
+            <button onclick="openCalendarPopup('5-day')">5 Day Rental</button>
+            <button onclick="openCalendarPopup('10-day')">10 Day Rental</button>
+        </div>
+    </div>
+</div>
+
+<!-- Rental Duration Calendar Popup -->
+<div id="calendar-popup" class="popup">
+    <div class="popup-content">
+        <span class="close" onclick="closePopup('calendar-popup')">&times;</span>
+        <h3>Select Rental Duration</h3>
+        <p id="selected-plan"></p>
+        <label for="start-date">Start Date:</label>
+        <input type="date" id="start-date" min="" onchange="setEndDate()">
+        <br><br>
+        <label for="end-date">End Date:</label>
+        <input type="date" id="end-date" min="">
+        <br><br>
+        <button onclick="confirmRental()">Confirm Rental</button>
+    </div>
+</div>
+
+
+<!-- What Can We Do in VR Section -->
+<section id="what-can-we-do-in-vr">
+    <h2>What Can We Do in VR?</h2>
+    <div class="vr-categories">
+        <!-- Gaming Category -->
+        <div class="category" id="gaming">
+            <!-- <span class="close" onclick="closePopup('gaming')">&times;</span> -->
+            <h3>Gaming</h3>
+            <button onclick="openVRDetail('beat-saber')">Beat Saber</button>
+            <button onclick="openVRDetail('resident-evil')">Resident Evil 7</button>
+            <button onclick="openVRDetail('ib-cricket')">IB Cricket</button>
+        </div>
+
+        <!-- Movies Category -->
+        <div class="category" id="movies">
+            <!-- <span class="close" onclick="closePopup('movies')">&times;</span> -->
+            <h3>Movies</h3>
+            <button onclick="openVRDetail('imax-vr')">IMAX VR</button>
+            <button onclick="openVRDetail('bigscreen-vr')">Bigscreen VR</button>
+            <button onclick="openVRDetail('veer-vr')">VeeR VR</button>
+        </div>
+
+        <!-- Immersive Tours Category -->
+        <div class="category" id="virtual-tours">
+            <!-- <span class="close" onclick="closePopup('virtual-tours')">&times;</span> -->
+            <h3>Immersive Tours</h3>
+            <button onclick="openVRDetail('louvre')">The Louvre</button>
+            <button onclick="openVRDetail('great-wall')">Great Wall of China</button>
+            <button onclick="openVRDetail('mars-rover')">Mars Rover</button>
+        </div>
+    </div>
+</section>
+
+<!-- VR Experience Detail Popup -->
+<div id="vr-detail-popup" class="popup">
+    <div class="popup-content">
+        <span class="close" onclick="closePopup('vr-detail-popup')">&times;</span>
+        <h3 id="vr-popup-title">Experience Title</h3>
+        <div id="vr-popup-body">
+            <!-- Content will be dynamically inserted here -->
+        </div>
+    </div>
+</div>
+
+
+<section id="testimonials">
+    <h2>What Our Customers Say</h2>
+    <div class="testimonial-slider">
+        <!-- Testimonial Item 1 -->
+        <div class="testimonial-item">
+            <!-- <img src="path-to-images/user1.jpg" alt="User Photo"> -->
+            <h3>Rahul S.</h3>
+            <p>"The VR experience was incredible! RentoVR made everything so easy and hassle-free."</p>
+            <div class="rating">
+                ⭐⭐⭐⭐☆
+            </div>
+        </div>
+        <!-- Testimonial Item 2 -->
+        <div class="testimonial-item">
+            <!-- <img src="path-to-images/user2.jpg" alt="User Photo"> -->
+            <h3>Priya M.</h3>
+            <p>"Affordable plans and great customer support. Highly recommended!"</p>
+            <div class="rating">
+                ⭐⭐⭐⭐☆
+            </div>
+        </div>
+        <!-- Testimonial Item 3 -->
+        <div class="testimonial-item">
+            <!-- <img src="path-to-images/user3.jpg" alt="User Photo"> -->
+            <h3>Aryan K.</h3>
+            <p>"Amazing service and the VR device worked perfectly. I'll definitely rent again."</p>
+            <div class="rating">
+                ⭐⭐⭐⭐☆
+            </div>
+        </div>
+        <!-- Testimonial Item 4 -->
+        <div class="testimonial-item">
+            <!-- <img src="path-to-images/user4.jpg" alt="User Photo"> -->
+            <h3>Neha P.</h3>
+            <p>"The best decision I made for my weekend entertainment. Thank you, RentoVR!"</p>
+            <div class="rating">
+                ⭐⭐⭐☆☆
+            </div>
+        </div>
+        <!-- Testimonial Item 5 -->
+        <div class="testimonial-item">
+            <!-- <img src="path-to-images/user5.jpg" alt="User Photo"> -->
+            <h3>Vikram T.</h3>
+            <p>"Great collection of devices and plans. Super convenient for a family gathering."</p>
+            <div class="rating">
+                ⭐⭐⭐⭐☆
+            </div>
+        </div>
+        <!-- Add More Testimonials -->
+        <!-- Example for randomized ratings -->
+        <div class="testimonial-item">
+            <!-- <img src="path-to-images/user6.jpg" alt="User Photo"> -->
+            <h3>Anjali R.</h3>
+            <p>"Easy booking and the VR was fun for everyone! Will rent again."</p>
+            <div class="rating">
+                ⭐⭐⭐⭐⭐
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Contact Us Page -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Contact Us - RentoVR</title>
+</head>
+<body>
+
+    <!-- Contact Form Section -->
+    <section id="contact-us">
+        <div class="contact-container-form">
+        <div class="contact-container">
+            <h1 class="header">Contact Us</h1>
+            <p>We'd love to hear from you! Please fill out the form below.</p>
+            <form class="contact-form">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
+                </div>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+    </section>
+<!--     
+
+<section id="social-media">
+    <div class="social-container">
+        <h3>Follow Us</h3>
+        <div class="social-icons">
+           
+            <a href="https://www.facebook.com" target="_blank" class="social-icon facebook">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            
+            <a href="https://www.instagram.com" target="_blank" class="social-icon instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+           
+            <a href="https://twitter.com" target="_blank" class="social-icon twitter">
+                <i class="fab fa-twitter"></i>
+            </a>
+           
+            <a href="https://www.youtube.com" target="_blank" class="social-icon youtube">
+                <i class="fab fa-youtube"></i>
+            </a>
+           
+            <a href="https://www.linkedin.com" target="_blank" class="social-icon linkedin">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+        </div>
+    </div>
+</section> -->
+
+
+<!-- Footer Section -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <footer>
+        <section id="social-media">
+            <div class="social-container">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com" target="_blank" class="social-icon facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com" target="_blank" class="social-icon instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://twitter.com" target="_blank" class="social-icon twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.youtube.com" target="_blank" class="social-icon youtube"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.linkedin.com" target="_blank" class="social-icon linkedin"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                
+            </div>
+        </section>
+        <p>&copy; 2024 RentoVR. All rights reserved.</p>
+    </footer>
+
+<!-- Modal for Login -->
+<div class="modal" id="login-modal">
+    <div class="modal-content">
+        <span class="close-btn" id="close-login">&times;</span>
+        <h2>Login</h2>
+        <form id="login-form" action="profile.html" method="post">
+            <label for="login-email">Email:</label>
+            <input type="email" id="login-email" name="email" required placeholder="Enter your email">
+            <label for="login-password">Password:</label>
+            <input type="password" id="login-password" name="password" required placeholder="Enter your password">
+            <button type="submit">Login</button>
+            <p>Don't have an account? <a href="javascript:void(0);" onclick="toggleToRegister()">Register Here</a></p>
+        </form>
+    </div>
+</div>
+<!-- Login Modal -->
+<div class="modal" id="login-modal">
+    <div class="modal-content">
+        <span class="close-btn" id="close-login">&times;</span>
+        <h2>Login</h2>
+        <form id="login-form" action="profile.html" method="post">
+            <label for="login-email">Email:</label>
+            <input type="email" id="login-email" name="email" required placeholder="Enter your email">
+            <label for="login-password">Password:</label>
+            <input type="password" id="login-password" name="password" required placeholder="Enter your password">
+            <button type="submit">Login</button>
+            <p>Don't have an account? <a href="javascript:void(0);" onclick="toggleToRegister()">Register Here</a></p>
+        </form>
+    </div>
+</div>
+
+<!-- Register Modal -->
+<div class="modal" id="register-modal">
+    <div class="modal-content">
+        <span class="close-btn" id="close-register">&times;</span>
+        <h2>Register</h2>
+        <form id="register-form" action="profile.html" method="post">
+            <label for="register-name">Full Name:</label>
+            <input type="text" id="register-name" name="full-name" required placeholder="Enter your full name">
+            <label for="register-email">Email:</label>
+            <input type="email" id="register-email" name="email" required placeholder="Enter your email">
+            <label for="register-password">Password:</label>
+            <input type="password" id="register-password" name="password" required placeholder="Enter a password">
+            <button type="submit">Register</button>
+            <p>Already have an account? <a href="javascript:void(0);" onclick="toggleToLogin()">Login Here</a></p>
+        </form>
+    </div>
+</div>
+
+
+<!-- JavaScript -->
+<script>
+    // Open Modal
+function openModal(modalId) {
+    const modal = document.getElementById(modalId);
+    modal.style.display = "block";
+}
+
+// Close Modal
+function closeModal(modalId) {
+    const modal = document.getElementById(modalId);
+    modal.style.display = "none";
+}
+
+// Toggle from login to register
+function toggleToRegister() {
+    closeModal("login-modal");
+    openModal("register-modal");
+}
+
+// Toggle from register to login
+function toggleToLogin() {
+    closeModal("register-modal");
+    openModal("login-modal");
+}
+
+// Close modal when clicking outside the content
+window.onclick = function(event) {
+    const loginModal = document.getElementById("login-modal");
+    const registerModal = document.getElementById("register-modal");
+
+    if (event.target === loginModal) {
+        loginModal.style.display = "none";
+    }
+
+    if (event.target === registerModal) {
+        registerModal.style.display = "none";
+    }
+};
+
+// Close modals when clicking the close button
+document.getElementById('close-login').onclick = function() {
+    closeModal("login-modal");
+};
+
+document.getElementById('close-register').onclick = function() {
+    closeModal("register-modal");
+};
+
+    
+</script>
+
+
+<script src="scripts.js"></script>
+</body>
+</html>

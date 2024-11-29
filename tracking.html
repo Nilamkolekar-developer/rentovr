@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Tracking | RentoVR</title>
+    <link rel="stylesheet" href="tracking.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <nav>
+            <ul>
+               
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="tracking.html">Track Order</a></li>
+                        <li><a href="order-history.html">Order History</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <!-- <li><a href="javascript:void(0);" onclick="openLoginModal()">Login</a></li>
+                        <li><a href="javascript:void(0);" onclick="openRegisterModal()">Register</a></li> -->
+    
+                  
+                </li>
+                <li><a href="profile.html">Profile</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <section id="tracking-section">
+            <div class="container">
+                <h1>Track Your Order</h1>
+                <p>Enter your Order ID to track the current status of your VR device rental.</p>
+
+                <!-- Tracking Form -->
+                <form id="order-tracking-form">
+                    <div class="form-section">
+                        <label for="order-id">Order ID</label>
+                        <input type="text" id="order-id" name="order-id" required placeholder="Enter your Order ID">
+                    </div>
+                    <div class="form-section">
+                        <button type="submit" class="cta-button">Track Order</button>
+                    </div>
+                </form>
+
+                <!-- Order Status Section -->
+                <div id="order-status-section" class="status-section">
+                    <h2>Order Status</h2>
+                    <p id="order-status">Please enter your Order ID to track the status.</p>
+                    <div class="progress-bar">
+                        <div id="progress-bar"></div>
+                    </div>
+                    <div id="estimated-delivery">
+                        <p>Estimated Delivery: <span id="estimated-time">N/A</span></p>
+                    </div>
+                </div>
+
+                <!-- Customer Support Section -->
+                <div id="customer-support" class="support-section">
+                    <h2>Need Assistance?</h2>
+                    <p>If you encounter any issues, reach out to our support team:</p>
+                    <p><strong>Email:</strong> support@rentovr.in</p>
+                    <p><strong>Phone:</strong> +91-123-456-7890</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <footer>
+        <section id="social-media">
+            <div class="social-container">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com" target="_blank" class="social-icon facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com" target="_blank" class="social-icon instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://twitter.com" target="_blank" class="social-icon twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.youtube.com" target="_blank" class="social-icon youtube"><i class="fab fa-youtube"></i></a>
+                    <a href="https://www.linkedin.com" target="_blank" class="social-icon linkedin"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                
+            </div>
+        </section>
+        <p>&copy; 2024 RentoVR. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        function toggleMenu() {
+            const menu = document.querySelector('.menu');
+            menu.classList.toggle('show');
+        }
+
+        document.getElementById('order-tracking-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const progressBar = document.getElementById('progress-bar');
+            const statusText = document.getElementById('order-status');
+            const estimatedTime = document.getElementById('estimated-time');
+
+            const orderId = document.getElementById('order-id').value;
+            if (orderId.trim() === "12345") {
+                progressBar.style.width = '70%';
+                statusText.textContent = 'Your order is being processed.';
+                estimatedTime.textContent = '2-3 Days';
+            } else {
+                progressBar.style.width = '0%';
+                statusText.textContent = 'Order not found. Please check your Order ID.';
+                estimatedTime.textContent = 'N/A';
+            }
+        });
+    </script>
+</body>
+</html>
